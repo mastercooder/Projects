@@ -1,22 +1,24 @@
 *{
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
-h1{
+.heading{
     background-color: #081b31;
     color: #fff;
-    height: 5rem;
-    line-height: 5rem;
     font-family: Bookman old style;
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .choices{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: clamp(3rem, ;
     margin-top: 5rem;
 }
 .choice:hover{
@@ -25,17 +27,17 @@ h1{
 }
 
 .choice{
-    height: 160px;
-    width: 160px;
+    height: clamp(50px, 160px, 300px);
+    width: clamp(50px, 160px, 300px);
     border-radius: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 img{
-    height: 150px;
-    width: 150px;
+    height: clamp(50px, 200px, 300px);
+    width: clamp(50px, 200px, 300px);
     object-fit: cover;
     border-radius: 50%;
 }
@@ -54,6 +56,9 @@ img{
 }
 .msg-container{
     margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #msg{
@@ -62,5 +67,10 @@ img{
     background-color: #081b31;
     color: #fff;
     display: inline;
-    font-size: 2rem;
+    font-size: clamp(10px, 3vw, 10vw);
 }
+
+/* @media screen (max-width: 600px) {
+    
+} */
+
