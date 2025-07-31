@@ -19,6 +19,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 5rem;
+    gap: 40px;
 }
 .choice:hover{
     cursor: pointer;
@@ -26,14 +27,13 @@
 }
 
 .choice{
-    height: clamp(50px, 160px, 300px);
-    width: clamp(50px, 160px, 300px);
-    /* gap: clamp(3rem 5rem 10rem); */
+    height: clamp(50px, 200px, 300px);
+    width: clamp(50px, 200px, 300px);
     border-radius: 50%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding-right: 60px;
+    padding: 10px;
 }
 
 img{
