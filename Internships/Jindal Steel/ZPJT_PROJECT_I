@@ -1,0 +1,616 @@
+REPORT zpjt_project_i.
+
+TABLES : mseg, mch1, inob, ausp,
+         ksml, cabn, kssk, klah, cdhdr,
+         cdpos, qpct.
+
+" --------------------------------------------
+" Type Declaration
+" --------------------------------------------
+TYPES: BEGIN OF lty_mseg,
+         matnr      TYPE matnr,
+         charg      TYPE charg_d,
+         aufnr      TYPE aufnr,
+         budat_mkpf TYPE budat,
+         menge      TYPE menge_d,
+         werks      TYPE mseg-werks,
+       END OF lty_mseg.
+
+TYPES: BEGIN OF lty_mch1,
+         matnr               TYPE mseg-matnr,
+         charg               TYPE mseg-charg,
+         cuobj_bm            TYPE cuobj_bm,
+         creation_datetime   TYPE lobm_created_on,
+         lastchange_datetime TYPE lobm_last_changed,
+       END OF lty_mch1.
+
+TYPES: BEGIN OF lty_mch1_temp,
+         matnr               TYPE mseg-matnr,
+         charg               TYPE mseg-charg,
+         objek               TYPE ausp-objek,
+         cuobj_bm            TYPE char90,
+         creation_datetime   TYPE lobm_created_on,
+         lastchange_datetime TYPE lobm_last_changed,
+       END OF lty_mch1_temp.
+
+TYPES: BEGIN OF lty_ausp,
+         objek TYPE cuobn,
+         mafid TYPE klmaf,
+         atwrt TYPE atwrt,
+       END OF lty_ausp.
+
+TYPES: BEGIN OF lty_ksml,
+         clint TYPE clint,
+       END OF lty_ksml.
+
+TYPES: BEGIN OF lty_kssk,
+         objek TYPE cuobn,
+         mafid TYPE klmaf,
+         clint TYPE clint,
+       END OF lty_kssk.
+
+TYPES: BEGIN OF lty_kssk_input,
+         clint TYPE clint,
+         objek TYPE cuobn,
+       END OF lty_kssk_input.
+
+TYPES: BEGIN OF lty_klah,
+         clint TYPE clint,
+         class TYPE klasse_d,
+       END OF lty_klah.
+
+TYPES: BEGIN OF lty_cdhdr,
+         objectid TYPE cdobjectv,
+         changenr TYPE cdchangenr,
+         username TYPE cdusername,
+         udate    TYPE cddatum,
+         utime    TYPE cduzeit,
+       END OF lty_cdhdr.
+
+TYPES: BEGIN OF lty_cdhdr_con,
+         date_time TYPE char20,
+       END OF lty_cdhdr_con.
+
+TYPES: BEGIN OF lty_objectid,
+         objectid TYPE cdobjectv,
+       END OF lty_objectid.
+
+TYPES: BEGIN OF lty_cdpos,
+         objectid  TYPE cdobjectv,
+         changenr  TYPE cdchangenr,
+         tabkey    TYPE cdtabkey,
+         value_new TYPE cdfldvaln,
+         value_old TYPE cdfldvalo,
+       END OF lty_cdpos.
+
+TYPES: BEGIN OF lty_chd,
+         objectid  TYPE cdobjectv,
+         changenr  TYPE cdchangenr,
+         tabkey    TYPE cdtabkey,
+         fname     TYPE fname,
+         value_new TYPE cdfldvaln,
+         value_old TYPE cdfldvalo,
+       END OF lty_chd.
+
+TYPES: BEGIN OF lty_cdpos_key,
+         objectid TYPE cdobjectv,
+         changenr TYPE cdchangenr,
+         tabkey   TYPE cdtabkey,
+       END OF lty_cdpos_key.
+
+TYPES: BEGIN OF lty_cdpos_exit,
+         codegruppe TYPE qpct-codegruppe,
+         code       TYPE qpct-code,
+         kurztext   TYPE qpct-kurztext,
+       END OF lty_cdpos_exit.
+
+TYPES: BEGIN OF lty_qpct,
+         codegruppe TYPE qpct-codegruppe,
+         code       TYPE qpct-code,
+         kurztext   TYPE qpct-kurztext,
+       END OF lty_qpct.
+
+TYPES: BEGIN OF lty_status,
+         day_since_last_status TYPE i,
+       END OF lty_status.
+
+TYPES: BEGIN OF lty_status_in_h,
+         hour_since_last_status TYPE char10,
+       END OF lty_status_in_h.
+
+TYPES : BEGIN OF lty_final,
+          werks                  TYPE mseg-werks,      " Plant
+          matnr                  TYPE mseg-matnr,      " Material
+          charg                  TYPE mseg-charg,      " Batch
+          aufnr                  TYPE mseg-aufnr,      " Order No.
+          budat_mkpf             TYPE mseg-budat_mkpf, " Posting Date
+          menge                  TYPE mseg-menge,      " Quantity
+          value_new              TYPE cdpos-value_new, " Status
+          kurztext               TYPE qpct-kurztext,   " Status Description
+          date_time              TYPE char20,          " Date and Time
+          username               TYPE cdhdr-username,  " Changed By
+          day_since_last_status  TYPE i,               " Day Since Last Status
+          hour_since_last_status TYPE char10,              " Hour Since Last Status
+        END OF lty_final.
+
+
+
+
+
+" --------------------------------------------
+" Data Declaration
+" --------------------------------------------
+
+" Internal Table and Work Area
+DATA: lt_mseg  TYPE TABLE OF lty_mseg,
+      lwa_mseg TYPE lty_mseg.
+DATA: lt_mch1  TYPE TABLE OF lty_mch1,
+      lwa_mch1 TYPE lty_mch1.
+DATA: lt_mch1_temp  TYPE TABLE OF lty_mch1_temp,
+      lwa_mch1_temp TYPE lty_mch1_temp.
+DATA: lt_ausp  TYPE TABLE OF lty_ausp,
+      lwa_ausp TYPE lty_ausp.
+DATA: lt_ksml  TYPE TABLE OF lty_ksml,
+      lwa_ksml TYPE lty_ksml.
+DATA: lt_kssk  TYPE TABLE OF lty_kssk,
+      lwa_kssk TYPE lty_kssk.
+DATA: lt_kssk_input  TYPE TABLE OF lty_kssk_input,
+      lwa_kssk_input TYPE lty_kssk_input.
+DATA: lt_klah  TYPE TABLE OF lty_klah,
+      lwa_klah TYPE lty_klah.
+DATA: lt_cdhdr  TYPE TABLE OF lty_cdhdr,
+      lwa_cdhdr TYPE lty_cdhdr.
+DATA: lt_cdhdr_con  TYPE TABLE OF lty_cdhdr_con,
+      lwa_cdhdr_con TYPE lty_cdhdr_con.
+DATA: lt_obj  TYPE TABLE OF lty_objectid,
+      lwa_obj TYPE lty_objectid.
+DATA: lt_cdpos  TYPE TABLE OF lty_cdpos,
+      lwa_cdpos TYPE lty_cdpos.
+DATA: lt_chd  TYPE TABLE OF lty_chd,
+      lwa_chd TYPE lty_chd.
+DATA: lt_parts      TYPE STANDARD TABLE OF string WITH EMPTY KEY,
+      lv_codegruppe TYPE qpct-codegruppe,
+      lv_code       TYPE qpct-code.
+DATA: lt_qpct  TYPE TABLE OF lty_qpct,
+      lwa_qpct TYPE lty_qpct.
+DATA: lt_status  TYPE TABLE OF lty_status,
+      lwa_status TYPE lty_status.
+DATA: lt_status_in_h  TYPE TABLE OF lty_status_in_h,
+      lwa_status_in_h TYPE lty_status_in_h.
+DATA: lt_final  TYPE TABLE OF lty_final,
+      lwa_final TYPE lty_final.
+
+
+"Field Catalog for ALV
+DATA: lt_fieldcat TYPE slis_t_fieldcat_alv,
+      ls_fieldcat TYPE slis_fieldcat_alv.
+
+" Top OF the Page
+DATA: lt_list TYPE slis_t_listheader,
+      ls_list TYPE slis_listheader.
+
+
+" Variable for Selection Options
+DATA: lv_matril TYPE matnr,      " Material Code
+      lv_batch  TYPE mseg-charg, " Batch
+      lv_prod   TYPE aufnr,      " Production Order
+      lv_plant  TYPE mseg-werks. " Plant
+
+
+
+" --------------------------------------------
+" Selection Screen
+" --------------------------------------------
+
+SELECTION-SCREEN: BEGIN OF BLOCK b1 WITH FRAME TITLE TEXT-000.
+  SELECTION-SCREEN: SKIP 1.
+  SELECT-OPTIONS: s_matril FOR lv_matril NO-EXTENSION.
+  SELECTION-SCREEN: SKIP 1.
+  SELECT-OPTIONS: s_batch FOR lv_batch NO-EXTENSION.
+  SELECTION-SCREEN: SKIP 1.
+  SELECT-OPTIONS: s_prod FOR lv_prod NO-EXTENSION.
+  SELECTION-SCREEN: SKIP 1.
+  SELECT-OPTIONS: s_plant FOR lv_plant DEFAULT 1307 NO INTERVALS NO-EXTENSION.
+SELECTION-SCREEN: END OF BLOCK b1.
+
+
+
+" --------------------------------------------
+" Start Of Selection
+" --------------------------------------------
+
+START-OF-SELECTION.
+
+  " Featching Data from MSEG Table
+  SELECT matnr
+         charg
+         aufnr
+         budat_mkpf
+         menge
+         werks
+  FROM mseg
+  INTO TABLE lt_mseg
+  WHERE matnr IN s_matril
+        AND charg IN s_batch
+        AND aufnr IN s_prod
+        AND werks IN s_plant.
+*        AND bwart = '101'.
+
+
+  " Featching Data From MCH1 Table
+  SELECT matnr
+         charg
+         cuobj_bm
+         creation_datetime
+         lastchange_datetime
+  FROM mch1
+  INTO TABLE lt_mch1
+  FOR ALL ENTRIES IN lt_mseg
+  WHERE matnr = lt_mseg-matnr
+    AND charg = lt_mseg-charg.
+
+  " Loop For Data Type Fix
+  LOOP AT lt_mch1 INTO lwa_mch1.
+    lwa_mch1_temp-matnr = lwa_mch1-matnr.
+    lwa_mch1_temp-charg = lwa_mch1-charg.
+    lwa_mch1_temp-cuobj_bm = lwa_mch1-cuobj_bm.
+    lwa_mch1_temp-creation_datetime = lwa_mch1-creation_datetime.
+    lwa_mch1_temp-lastchange_datetime = lwa_mch1-lastchange_datetime.
+    APPEND lwa_mch1_temp TO lt_mch1_temp.
+    CLEAR lwa_mch1_temp.
+  ENDLOOP.
+  " Featching Data from AUSP Table
+  SELECT objek mafid atwrt
+  FROM ausp
+  INTO TABLE lt_ausp
+  FOR ALL ENTRIES IN lt_mch1_temp
+  WHERE objek =  lt_mch1_temp-cuobj_bm.
+*    AND atinn = '2771'.
+
+
+
+  " Featching Data From KSML
+  SELECT clint
+  FROM ksml
+  INTO TABLE lt_ksml.
+  DELETE ADJACENT DUPLICATES FROM lt_ksml.
+*  WHERE imerk = '2771'.
+
+
+
+  " Loop To input two differnet table in one structure
+  LOOP AT lt_ksml INTO lwa_ksml.
+    LOOP AT lt_ausp INTO lwa_ausp.
+      lwa_kssk_input-clint = lwa_ksml-clint.
+      lwa_kssk_input-objek = lwa_ausp-objek.
+      APPEND lwa_kssk_input TO lt_kssk_input.
+      CLEAR lwa_kssk_input.
+    ENDLOOP.
+  ENDLOOP.
+
+  " Featching Data From KSSK
+  SELECT objek mafid clint
+  FROM kssk
+  INTO TABLE lt_kssk
+  FOR ALL ENTRIES IN lt_kssk_input
+  WHERE clint = lt_kssk_input-clint
+  AND objek = lt_kssk_input-objek.
+
+
+
+  " Featching Data From KLAH
+  SELECT clint clint
+  FROM klah
+  INTO TABLE lt_klah
+  FOR ALL ENTRIES IN lt_kssk
+  WHERE clint = lt_kssk-clint.
+
+
+
+  " Concatinating Loop
+  LOOP AT lt_kssk INTO lwa_kssk.
+    lwa_obj-objectid = |{ lwa_kssk-objek } { lwa_kssk-mafid }|.
+    APPEND lwa_obj TO lt_obj.
+  ENDLOOP.
+
+  " Featching Data From CDHDR
+  SELECT objectid changenr username udate utime
+  FROM cdhdr
+  INTO TABLE lt_cdhdr
+*  FOR ALL ENTRIES IN lt_obj
+  WHERE objectid = '01060001P0001'.
+
+  LOOP AT lt_cdhdr INTO lwa_cdhdr.
+    lwa_cdhdr_con-date_time = |{ lwa_cdhdr-udate } { lwa_cdhdr-utime }|.
+    APPEND lwa_cdhdr_con TO lt_cdhdr_con.
+    CLEAR lwa_cdhdr_con.
+  ENDLOOP.
+
+
+  " Featching Data From CDPOS
+  IF lt_cdhdr IS NOT INITIAL.
+    SELECT objectid
+           changenr
+           tabkey
+           value_old
+           value_new
+    FROM cdpos
+    INTO TABLE lt_cdpos
+    FOR ALL ENTRIES IN lt_cdhdr
+    WHERE objectid = lt_cdhdr-objectid
+     AND changenr = lt_cdhdr-changenr.
+
+    LOOP AT lt_cdpos INTO lwa_cdpos.
+      IF lwa_cdpos-tabkey CP '*2771*'.
+        APPEND lwa_cdpos TO lt_chd.
+      ENDIF.
+    ENDLOOP.
+  ENDIF.
+
+  " Featching Data from QPCT
+  LOOP AT lt_chd INTO lwa_chd.
+    CLEAR: lt_parts, lv_codegruppe, lv_code.
+
+    SPLIT lwa_chd-value_new AT space INTO TABLE lt_parts.
+    DELETE lt_parts WHERE table_line IS INITIAL.
+
+    READ TABLE lt_parts INTO lv_codegruppe INDEX 1.
+    READ TABLE lt_parts INTO lv_code INDEX lines( lt_parts ).
+
+    IF lv_codegruppe IS NOT INITIAL AND lv_code IS NOT INITIAL.
+      SELECT SINGLE kurztext
+        INTO lwa_qpct-kurztext
+        FROM qpct
+        WHERE codegruppe = lv_codegruppe
+        AND code = lv_code.
+      lwa_qpct-codegruppe = lv_codegruppe.
+      lwa_qpct-code = lv_code.
+      APPEND lwa_qpct TO lt_qpct.
+    ENDIF.
+  ENDLOOP.
+
+  " Featching Data for Day Since Last Status
+  LOOP AT lt_cdhdr INTO lwa_cdhdr.
+    lwa_status-day_since_last_status = sy-datum - lwa_cdhdr-udate.
+    APPEND lwa_status TO lt_status.
+    CLEAR lwa_status.
+  ENDLOOP.
+
+  " Hours Since Last Status
+  LOOP AT lt_status INTO lwa_status.
+    lwa_status_in_h-hour_since_last_status = lwa_status-day_since_last_status * 24.
+    APPEND lwa_status_in_h TO lt_status_in_h.
+    CLEAR lwa_status_in_h.
+  ENDLOOP.
+
+  LOOP AT lt_mseg INTO lwa_mseg.
+    READ TABLE lt_mseg INTO lwa_mseg WITH KEY matnr = lwa_mseg-matnr
+                                              charg = lwa_mseg-charg
+                                              aufnr = lwa_mseg-aufnr
+                                              werks = lwa_mseg-werks.
+    IF sy-subrc = 0.
+      lwa_final-werks      = lwa_mseg-werks.      " Plant
+      lwa_final-matnr      = lwa_mseg-matnr.      " Material
+      lwa_final-charg      = lwa_mseg-charg.      " Batch
+      lwa_final-aufnr      = lwa_mseg-aufnr.      " Order No.
+      lwa_final-budat_mkpf = lwa_mseg-budat_mkpf. " Posting Date
+      lwa_final-menge      = lwa_mseg-menge.      " Quantity
+
+      IF sy-subrc = 0.
+        READ TABLE lt_mch1 INTO lwa_mch1 WITH KEY matnr = lwa_mseg-matnr
+                                                  charg = lwa_mseg-charg.
+        IF sy-subrc = 0.
+          READ TABLE lt_mch1_temp INTO lwa_mch1_temp WITH KEY matnr = lwa_mseg-matnr
+                                                              charg = lwa_mseg-charg.
+          IF sy-subrc = 0.
+            READ TABLE lt_ausp INTO lwa_ausp WITH KEY objek =  lwa_mch1_temp-cuobj_bm.
+            IF sy-subrc = 0.
+              READ TABLE lt_kssk_input INTO lwa_kssk_input WITH KEY objek = lwa_mch1_temp-cuobj_bm.
+              IF sy-subrc = 0.
+                LOOP AT lt_ksml INTO lwa_ksml.
+                  READ TABLE lt_kssk INTO lwa_kssk WITH KEY clint = lwa_kssk_input-clint
+                                                            objek = lwa_kssk_input-objek.
+                ENDLOOP.
+                IF sy-subrc = 0.
+                  READ TABLE lt_klah INTO lwa_klah WITH KEY clint = lwa_kssk-clint.
+
+                  IF sy-subrc = 0.
+                    READ TABLE lt_cdhdr INTO lwa_cdhdr WITH KEY objectid = '01060001P0001'.
+                    lwa_final-username   = lwa_cdhdr-username.  " Changed By
+
+                    IF sy-subrc = 0.
+                      READ TABLE lt_cdpos INTO lwa_cdpos WITH KEY objectid = lwa_cdhdr-objectid
+                                                                  changenr = lwa_cdhdr-changenr.
+                      lwa_final-value_new  = lwa_cdpos-value_new. " Status
+                      lwa_final-kurztext   = lwa_qpct-kurztext.   " Status Description
+                      IF sy-subrc = 0.
+                        READ TABLE lt_cdhdr_con INTO lwa_cdhdr_con INDEX 1.
+                        lwa_final-date_time  = lwa_cdhdr_con-date_time.
+                        IF sy-subrc = 0.
+                          READ TABLE lt_status INTO lwa_status INDEX 1.
+                          lwa_final-day_since_last_status = lwa_status-day_since_last_status.
+                          IF sy-subrc = 0.
+                            READ TABLE lt_status_in_h INTO lwa_status_in_h INDEX 1.
+                            lwa_final-hour_since_last_status = lwa_status_in_h-hour_since_last_status.
+                          ENDIF.
+                        ENDIF.
+                      ENDIF.
+                    ENDIF.
+                  ENDIF.
+                ENDIF.
+              ENDIF.
+            ENDIF.
+          ENDIF.
+        ENDIF.
+      ENDIF.
+    ENDIF.
+    APPEND lwa_final TO lt_final.
+    CLEAR lwa_final.
+  ENDLOOP.
+
+
+
+  " Manual Generation of Fields
+  ls_fieldcat-col_pos = '1'.
+  ls_fieldcat-fieldname = 'werks'.
+  ls_fieldcat-tabname = 'lt_final'.
+  ls_fieldcat-seltext_l = 'Plant'.
+  APPEND ls_fieldcat TO lt_fieldcat.
+  CLEAR ls_fieldcat.
+
+  ls_fieldcat-col_pos = '2'.
+  ls_fieldcat-fieldname = 'matnr'.
+  ls_fieldcat-tabname = 'lt_final'.
+  ls_fieldcat-seltext_l = 'Material'.
+  APPEND ls_fieldcat TO lt_fieldcat.
+  CLEAR ls_fieldcat.
+
+  ls_fieldcat-col_pos = '3'.
+  ls_fieldcat-fieldname = 'charg'.
+  ls_fieldcat-tabname = 'lt_final'.
+  ls_fieldcat-seltext_l = 'Batch'.
+  APPEND ls_fieldcat TO lt_fieldcat.
+  CLEAR ls_fieldcat.
+
+  ls_fieldcat-col_pos = '4'.
+  ls_fieldcat-fieldname = 'aufnr'.
+  ls_fieldcat-tabname = 'lt_final'.
+  ls_fieldcat-seltext_l = 'Order No.'.
+  APPEND ls_fieldcat TO lt_fieldcat.
+  CLEAR ls_fieldcat.
+
+  ls_fieldcat-col_pos = '5'.
+  ls_fieldcat-fieldname = 'budat_mkpf'.
+  ls_fieldcat-tabname = 'lt_final'.
+  ls_fieldcat-seltext_l = 'Posting Date'.
+  APPEND ls_fieldcat TO lt_fieldcat.
+  CLEAR ls_fieldcat.
+
+  ls_fieldcat-col_pos = '6'.
+  ls_fieldcat-fieldname = 'menge'.
+  ls_fieldcat-tabname = 'lt_final'.
+  ls_fieldcat-seltext_l = 'Quantity'.
+  APPEND ls_fieldcat TO lt_fieldcat.
+  CLEAR ls_fieldcat.
+*
+  ls_fieldcat-col_pos = '7'.
+  ls_fieldcat-fieldname = 'value_new'.
+  ls_fieldcat-tabname = 'lt_final'.
+  ls_fieldcat-seltext_l = 'Status'.
+  APPEND ls_fieldcat TO lt_fieldcat.
+  CLEAR ls_fieldcat.
+*
+  ls_fieldcat-col_pos = '8'.
+  ls_fieldcat-fieldname = 'kurztext'.
+  ls_fieldcat-tabname = 'lt_final'.
+  ls_fieldcat-seltext_l = 'Status Description'.
+  APPEND ls_fieldcat TO lt_fieldcat.
+  CLEAR ls_fieldcat.
+
+  ls_fieldcat-col_pos = '9'.
+  ls_fieldcat-fieldname = 'date_time'.
+  ls_fieldcat-tabname = 'lt_final'.
+  ls_fieldcat-seltext_l = 'Date & Time'.
+  APPEND ls_fieldcat TO lt_fieldcat.
+  CLEAR ls_fieldcat.
+
+  ls_fieldcat-col_pos = '10'.
+  ls_fieldcat-fieldname = 'username'.
+  ls_fieldcat-tabname = 'lt_final'.
+  ls_fieldcat-seltext_l = 'Changed By'.
+  APPEND ls_fieldcat TO lt_fieldcat.
+  CLEAR ls_fieldcat.
+
+  ls_fieldcat-col_pos = '11'.
+  ls_fieldcat-fieldname = 'day_since_last_status'.
+  ls_fieldcat-tabname = 'lt_final'.
+  ls_fieldcat-seltext_l = 'Day Since Last Status'.
+  APPEND ls_fieldcat TO lt_fieldcat.
+  CLEAR ls_fieldcat.
+
+  ls_fieldcat-col_pos = '12'.
+  ls_fieldcat-fieldname = 'hour_since_last_status'.
+  ls_fieldcat-tabname = 'lt_final'.
+  ls_fieldcat-seltext_l = 'Hour Since Last Status'.
+  APPEND ls_fieldcat TO lt_fieldcat.
+  CLEAR ls_fieldcat.
+
+  CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY'
+    EXPORTING
+*     I_INTERFACE_CHECK      = ' '
+*     I_BYPASSING_BUFFER     = ' '
+*     I_BUFFER_ACTIVE        = ' '
+      i_callback_program     = sy-repid
+*     I_CALLBACK_PF_STATUS_SET    = ' '
+*     I_CALLBACK_USER_COMMAND     = ' '
+      i_callback_top_of_page = 'TOP_PAGE'
+*     i_callback_html_top_of_page = ' '
+*     I_CALLBACK_HTML_END_OF_LIST = ' '
+*     I_STRUCTURE_NAME       =
+*     I_BACKGROUND_ID        = ' '
+*     I_GRID_TITLE           =
+*     I_GRID_SETTINGS        =
+*     IS_LAYOUT              =
+      it_fieldcat            = lt_fieldcat
+*     IT_EXCLUDING           =
+*     IT_SPECIAL_GROUPS      =
+*     IT_SORT                =
+*     IT_FILTER              =
+*     IS_SEL_HIDE            =
+*     I_DEFAULT              = 'X'
+*     I_SAVE                 = ' '
+*     IS_VARIANT             =
+*     IT_EVENTS              =
+*     IT_EVENT_EXIT          =
+*     IS_PRINT               =
+*     IS_REPREP_ID           =
+*     I_SCREEN_START_COLUMN  = 0
+*     I_SCREEN_START_LINE    = 0
+*     I_SCREEN_END_COLUMN    = 0
+*     I_SCREEN_END_LINE      = 0
+*     I_HTML_HEIGHT_TOP      = 0
+*     I_HTML_HEIGHT_END      = 0
+*     IT_ALV_GRAPHICS        =
+*     IT_HYPERLINK           =
+*     IT_ADD_FIELDCAT        =
+*     IT_EXCEPT_QINFO        =
+*     IR_SALV_FULLSCREEN_ADAPTER  =
+*     O_PREVIOUS_SRAL_HANDLER     =
+*     O_COMMON_HUB           =
+*   IMPORTING
+*     E_EXIT_CAUSED_BY_CALLER     =
+*     ES_EXIT_CAUSED_BY_USER =
+    TABLES
+      t_outtab               = lt_final
+    EXCEPTIONS
+      program_error          = 1
+      OTHERS                 = 2.
+  IF sy-subrc <> 0.
+* Implement suitable error handling here
+  ENDIF.
+FORM top_page.
+  ls_list-typ = 'H'.
+  ls_list-info = 'Project - I'.
+  APPEND ls_list TO lt_list.
+  CLEAR ls_list.
+
+  CONCATENATE: 'Date: ' ' ' sy-datum INTO DATA(lv_output).
+  ls_list-typ = 'S'.
+  ls_list-info = lv_output.
+  APPEND ls_list TO lt_list.
+  CLEAR ls_list.
+
+  CONCATENATE 'User: ' sy-uname INTO DATA(lv_output2).
+  ls_list-typ = 'S'.
+  ls_list-info = lv_output2.
+  APPEND ls_list TO lt_list.
+  CLEAR ls_list.
+
+  CALL FUNCTION 'REUSE_ALV_COMMENTARY_WRITE'
+    EXPORTING
+      it_list_commentary = lt_list
+      i_logo             = 'ZPJT_I_IMG'
+*     I_END_OF_LIST_GRID =
+*     I_ALV_FORM         =
+    .
+ENDFORM.
