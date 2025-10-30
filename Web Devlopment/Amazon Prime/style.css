@@ -1,0 +1,303 @@
+/* --------------Header--------------- */
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    border: border-box;
+}
+
+body{
+    background-color: #000101;
+}
+.navbar{
+    height: 4rem;
+    background-color: #01050d;
+    display: flex;
+    align-content: center;
+}
+.nav-logo{
+    height: 1.5rem;
+    width: 5.8rem;
+    margin: 22px 30px 20px 60px;
+}
+#logo{
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/web/logo-min-remaster.png");
+    background-size: cover;
+    height: 80%;
+    width: 110%;
+}
+.nav-options{
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 12px;
+    font-weight: lighter;
+    .nav-home,
+    .nav-movies,
+    .nav-shows,
+    .nav-live{
+        margin: 30px;
+    }
+}
+.nav-div-line{
+    height: 25px;
+    width: 12px;
+    padding-right: 20px;
+}
+#div-logo{
+    background-image: url(/Icons/vertical_line.png);
+    background-size: cover;
+    height: 100%;
+}
+.nav-sub{
+    height: 12px;
+    width: 15px;
+}
+#icon-sub{
+    background-image: url(/Icons/Subscriptions.png);
+    background-size: cover;
+    height: 100%;
+}
+.nav-sub-txt{
+    padding-left: 5px;
+    padding-right: 350px;
+}
+.nav-search{
+    height: 20px;
+    width: 20px;
+    margin: 30px;
+}
+#nav-ser-logo{
+    background-image: url(/Icons/search.png);
+    background-size: cover;
+    height: 100%;
+}
+.nav-lan{
+    font-weight: lighter;
+    font-size: 14px;
+}
+.nav-lan-img{
+    height: 20px;
+    width: 20px;
+}
+#lan-img{
+    background-image: url(/Icons/dropdown.png);
+    background-size: cover;
+    height: 100%;
+}
+.nav-mul-sel{
+    height: 20px;
+    width: 20px;
+    margin-left: 20px;
+}
+#mulsel-img{
+    background-image: url(/Icons/mutliselector.png);
+    background-size: cover;
+    height: 100%;
+}
+.nav-acc{
+    height: 40px;
+    width: 40px;
+    margin: 20px;
+}
+#acc-img{
+    background-image: url(/Icons/account.png);
+    background-size: cover;
+    height: 100%;
+}
+.join-btn{
+    height: 20px;
+    width: 120px;
+}
+#nav-btn{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #157acf;
+    color: white;
+    text-decoration: none;
+    font-family: lato;
+}
+
+
+
+
+/* --------------Main--------------- */
+.bd-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.bd-mn-hd{
+    height: 750px;
+    width: 100%;
+    color: white;
+    padding: 70px 70px 60px 70px;
+    
+}
+.hd-htxt,
+.hd-htxt-2{
+    font-size: 25px;
+    padding-bottom: 30px;
+}
+.hd-ptxt,
+.hd-ptxt-2{
+    font-size: 20px;
+    padding-bottom: 30px;
+    font-weight: bolder;
+}
+.bd-mn-img{
+    height: 400px;
+    width: 100%;
+    padding-bottom: 30px;
+    font-weight: bolder;
+}
+.bd-sign,
+.bd-rent{
+    font-size: 20px;
+    color: black;
+    background-color: white;
+    height: 50px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bolder;
+    margin-bottom: 210px;
+}
+.bd-rent{
+    width: 110px;
+}
+#bd-img-1{
+    background-image: url(/Icons/hero-section-1.jpg);
+    background-size: contain;
+    background-position: center right;
+    background-repeat: no-repeat;
+    height: 110%;
+    width: 106%;
+}
+#bd-img-2{
+    background-image: url(/Icons/hero-section-2.jpg);
+    background-size: contain;
+    background-position: center right;
+    background-repeat: no-repeat;
+    height: 110%;
+    width: 106%;
+}
+.bd-cont-2{
+    background-color: #01050d;
+    color: white;
+    height: 500px;
+    display: flex;
+}
+.bd-ft-txt{
+    width: 50%;
+    font-weight: bolder;
+    padding: 50px;
+}
+.bd-ft-htxt{
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+.bd-ft-pf{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+.ft-platforms{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 700px;
+}
+.ft-pt-options{
+    background-size: cover;
+    border-radius: 10px;
+    width: 200px;
+    height: 110px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+}
+.ft-appletv{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_AppleTV_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-crunchyroll{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Crunchyroll_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-lionsgate{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_LGP_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-discovery{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Discovery_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-anime{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Anime_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-manorama{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Manoramamax_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-chaupal{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Chaupal_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-bbc{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_BBC_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-fancode{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Fancode_V1._AC_SX400_QL80_FP_.png");
+}
+
+
+/* -------------Footer-------------- */
+.ft-section{
+    background-color: #232222;
+    height: 90px;
+    width: 100%;
+    padding: 20px;
+}
+.ft-content-logo{
+    display: flex;
+    justify-content: center;
+}
+.ft-logo-amazon{
+    height: 32px;
+    width: 105px;
+    padding-right: 30px;
+}
+#ft-logo{
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/acquisition/logo/pv_logo_white._CB548637580_.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+.ft-content-txt{
+    padding: 10px;
+    p{
+        padding-right: 20px;
+    }
+}
+.ft-feedback{
+    display: flex;
+    justify-content: center;
+    color: #79b8f3;
+}
+.ft-copyright{
+    margin: 10px;
+}
+.c-img{
+    background-image: url(/Icons/copyright.png);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+.c-txt{
+    display: flex;
+    justify-content: center;
+    color: #819687;
+}
