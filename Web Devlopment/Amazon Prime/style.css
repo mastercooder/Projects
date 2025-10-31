@@ -38,8 +38,17 @@ body{
     .nav-movies,
     .nav-shows,
     .nav-live{
-        margin: 30px;
+        margin: 20px;
+        border-radius: 10px;
+        padding: 10px;
     }
+}
+.nav-home:hover,
+.nav-movies:hover,
+.nav-shows:hover,
+.nav-live:hover{
+    background-color: white;
+    color: black;
 }
 .nav-div-line{
     height: 25px;
@@ -53,21 +62,36 @@ body{
 }
 .nav-sub{
     height: 12px;
-    width: 15px;
+    width: 115px;
+    margin-right: 340px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
 }
-#icon-sub{
+.nav-sub:hover{
+    background-color: white;
+    color: black;
+}
+.nav-sub-img{
+    height: 15px;
+    width: 17px;
+}
+#icon-img{
     background-image: url(/Icons/Subscriptions.png);
     background-size: cover;
     height: 100%;
 }
 .nav-sub-txt{
+    height: 16px;
     padding-left: 5px;
-    padding-right: 350px;
 }
 .nav-search{
     height: 20px;
     width: 20px;
-    margin: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    margin: 15px;  
 }
 #nav-ser-logo{
     background-image: url(/Icons/search.png);
@@ -77,6 +101,14 @@ body{
 .nav-lan{
     font-weight: lighter;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+.nav-lan-txt{
+    padding-right: 5px;
 }
 .nav-lan-img{
     height: 20px;
@@ -90,7 +122,8 @@ body{
 .nav-mul-sel{
     height: 20px;
     width: 20px;
-    margin-left: 20px;
+    padding: 10px;
+    border-radius: 50%;
 }
 #mulsel-img{
     background-image: url(/Icons/mutliselector.png);
@@ -98,9 +131,14 @@ body{
     height: 100%;
 }
 .nav-acc{
-    height: 40px;
-    width: 40px;
-    margin: 20px;
+    height: 30px;
+    width: 30px;
+    margin: 20px 20px 20px 1px;
+    border-radius: 50%;
+    padding: 5px;
+}
+.nav-acc:hover{
+    background-color: white;
 }
 #acc-img{
     background-image: url(/Icons/account.png);
@@ -120,43 +158,52 @@ body{
     text-decoration: none;
     font-family: lato;
 }
+#nav-btn:hover{
+    background-color: #1a98ff;
+}
 
 
 
 
 /* --------------Main--------------- */
-.bd-container{
+.bd-container-1,
+.bd-container-2{
+    height: 500px;
     display: flex;
     justify-content: space-evenly;
 }
-.bd-mn-hd{
-    height: 750px;
-    width: 100%;
+.bd-con1-txt,
+.bd-con2-txt{
     color: white;
-    padding: 70px 70px 60px 70px;
-    
+    padding: 70px 0px 70px 70px;
+}
+.bd-con1-img{
+    height: 500px;
+    width: 80%;
+}
+#bd-img-1{
+    background-image: url(/Icons/hero-section-1.jpg);
+    background-size: contain;
+    background-position: center right;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
 }
 .hd-htxt,
 .hd-htxt-2{
     font-size: 25px;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
 }
 .hd-ptxt,
 .hd-ptxt-2{
     font-size: 20px;
-    padding-bottom: 30px;
-    font-weight: bolder;
-}
-.bd-mn-img{
-    height: 400px;
-    width: 100%;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
     font-weight: bolder;
 }
 .bd-sign,
 .bd-rent{
     font-size: 20px;
-    color: black;
+    color: #00050d;
     background-color: white;
     height: 50px;
     width: 200px;
@@ -165,27 +212,40 @@ body{
     align-items: center;
     padding: 5px;
     border-radius: 5px;
-    font-weight: bolder;
+    font-weight: bold;
     margin-bottom: 210px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+.bd-sign:hover{
+    color: #4c4d4d;
+    font-size: 22px;
+    height: 53px;
+    width: 220px;
+    transform: scale(1.05); 
+}
+
 .bd-rent{
     width: 110px;
 }
-#bd-img-1{
-    background-image: url(/Icons/hero-section-1.jpg);
-    background-size: contain;
-    background-position: center right;
-    background-repeat: no-repeat;
-    height: 110%;
-    width: 106%;
+.bd-rent:hover{
+    color: #4c4d4d;
+    font-size: 22px;
+    height: 53px;
+    width: 120px;
+    transform: scale(1.05); 
+}
+
+.bd-con2-img{
+    height: 500px;
+    width: 50%;
 }
 #bd-img-2{
     background-image: url(/Icons/hero-section-2.jpg);
     background-size: contain;
     background-position: center right;
     background-repeat: no-repeat;
-    height: 110%;
-    width: 106%;
+    height: 100%;
+    width: 100%;
 }
 .bd-cont-2{
     background-color: #01050d;
@@ -222,7 +282,11 @@ body{
     height: 110px;
     background-position: center;
     background-repeat: no-repeat;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ft-pt-options:hover {
+  transform: scale(1.03); /* tiny lift effect */
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
 }
 .ft-appletv{
     background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_AppleTV_V1._AC_SX400_QL80_FP_.png");
@@ -257,7 +321,6 @@ body{
 .ft-section{
     background-color: #232222;
     height: 90px;
-    width: 100%;
     padding: 20px;
 }
 .ft-content-logo{
@@ -286,6 +349,9 @@ body{
     display: flex;
     justify-content: center;
     color: #79b8f3;
+}
+.ft-feedback:hover{
+    color: #5fcbfe;
 }
 .ft-copyright{
     margin: 10px;
