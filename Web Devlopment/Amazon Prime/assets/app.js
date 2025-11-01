@@ -1,6 +1,5 @@
 
 // --------- Navigation ------------
-
 // Scrolled
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
@@ -9,6 +8,7 @@ window.addEventListener('scroll', function() {
         navbar.classList.add('scrolled');
     } else{
         navbar.classList.remove('scrolled');
+        
     }
 });
 
@@ -42,27 +42,132 @@ navsearch.addEventListener('mouseleave', () =>{
 // Language
 const navlan = document.querySelector('.nav-lan');
 const navlanicon = document.getElementById('lan-img');
-navlan.addEventListener('mouseenter', () =>{
+const navlanpopup = document.querySelector('.lan-popup');
+
+let isHoveringNavlan = false;
+let isHoveringPopuplan = false;
+
+function lanShowPopup() {
+    navlan.classList.add('active');
+    navlanpopup.classList.add('lanShow');
     navlan.style.backgroundColor = 'white';
     navlan.style.color = 'black';
-    navlanicon.style.backgroundImage = 'url(/Icons/dropdown2.png)'
-});
-navlan.addEventListener('mouseleave', () =>{
+    navlanicon.style.backgroundImage = 'url(/Icons/dropdown2.png)';
+}
+function lanHidePopup() {
+    navlan.classList.remove('active');
+    navlanpopup.classList.remove('lanShow');
     navlan.style.backgroundColor = 'transparent';
     navlan.style.color = 'white';
-    navlanicon.style.backgroundImage = 'url(/Icons/dropdown.png)'
+    navlanicon.style.backgroundImage = 'url(/Icons/dropdown.png)';
+}
+
+navlan.addEventListener('mouseenter', () =>{
+    isHoveringNavlan = true;
+    lanShowPopup();
+})
+navlan.addEventListener('mouseleave', ()=>{
+    isHoveringNavlan = false;
+    setTimeout(() =>{
+        if(!isHoveringPopuplan){
+            lanHidePopup();
+        }
+    }, 200);
 });
+navlanpopup.addEventListener('mouseenter', () =>{
+    isHoveringPopuplan = true;
+    lanShowPopup();
+});
+navlanpopup.addEventListener('mouseleave', () =>{
+    isHoveringPopuplan = false;
+    setTimeout(() =>{
+        if(!isHoveringNavlan){
+            lanHidePopup();
+        }
+    }, 200);
+});
+
 
 // Multipleselect
 const mulsel = document.querySelector('.nav-mul-sel');
 const mulselicon = document.getElementById('mulsel-img');
-mulsel.addEventListener('mouseenter', () =>{
-    mulsel.style.backgroundColor = 'white';
-    mulsel.style.color = 'black';
+const mulselpopup = document.querySelector('.mulsel-popup')
+
+let isHoveringNavmul = false;
+let isHoveringPopupmul = false;
+
+function mulShowpopup(){
+    mulsel.style.backgroundColor = 'white';;
+    mulselpopup.classList.add('mulShow');
     mulselicon.style.backgroundImage = 'url(/Icons/mutliselector2.png)'
-});
-mulselicon.addEventListener('mouseleave', () =>{
+}
+function mulHidepopup(){
     mulsel.style.backgroundColor = 'transparent';
-    mulsel.style.color = 'white';
+    mulselpopup.classList.remove('mulShow');
     mulselicon.style.backgroundImage = 'url(/Icons/mutliselector.png)'
+}
+
+mulsel.addEventListener('mouseenter', () =>{
+    isHoveringNavmul = true;
+    mulShowpopup();
 });
+mulsel.addEventListener('mouseleave', () =>{
+    isHoveringNavmul = false;
+    setTimeout(() => {
+        if(!isHoveringPopupmul){
+            mulHidepopup();
+        }
+    }, 200);
+});
+mulselpopup.addEventListener('mouseenter', () =>{
+    isHoveringPopupmul = true;
+    mulShowpopup();
+});
+mulselpopup.addEventListener('mouseleave', () =>{
+    isHoveringPopupmul = false;
+    setTimeout(() => {
+        if(!isHoveringNavmul){
+            mulHidepopup();
+        }
+    }, 200);
+});
+
+
+// Account
+const navacc = document.querySelector('.nav-acc');
+const accPopup = document.querySelector('.acc-popup');
+
+let isHoveringNavacc = false;
+let isHoveringPopupacc = false;
+
+function accShowpopup(){
+    accPopup.classList.add('accShow');
+}
+function accHidepopup(){
+    accPopup.classList.remove('accShow');
+}
+
+navacc.addEventListener('mouseenter', () =>{
+    isHoveringNavacc = true;
+    accShowpopup();
+});
+navacc.addEventListener('mouseleave', () =>{
+    isHoveringNavacc = false;
+    setTimeout(() => {
+        if(!isHoveringPopupacc){
+            accHidepopup();
+        }
+    }, 200);
+});
+accPopup.addEventListener('mouseenter', () =>{
+    isHoveringPopupacc = true;
+    accShowpopup();
+});
+accPopup.addEventListener('mouseleave', () =>{
+    isHoveringPopupacc = false;
+    setTimeout(() => {
+        if(!isHoveringNavacc){
+            accHidepopup();
+        }
+    }, 200);
+})

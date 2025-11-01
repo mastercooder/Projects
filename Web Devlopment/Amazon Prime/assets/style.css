@@ -26,8 +26,8 @@ body{
     border-bottom-right-radius: 10px;
 }
 .navbar.scrolled{
-    background-color: rgba(21, 25, 32, 0.5);
-    backdrop-filter: blur(10px);
+    background-color: rgba(21, 25, 32, 0.75);
+    backdrop-filter: blur(15px);
 }
 .nav-logo{
     height: 1.5rem;
@@ -173,9 +173,159 @@ body{
 }
 
 
+/* NAVBAR POPUP'S STYLE */
+/* Langugae Popup */
+.lan-popup{
+    position: fixed;
+    top: 5.5rem;
+    left: 50%;
+    transform: translateX(-25%) translateY(-15px);
+    width: 55%;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(20, 24, 30, 0.9);
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+.lan-popup.lanShow {
+    opacity: 1;
+    transform: translateX(-25%) translateY(-15px);
+    pointer-events: auto;
+}
+.lan-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.lan-container ul{
+    list-style: none;
+    padding: 0;
+}
+.lan-container li{
+    color: wheat;
+    font-size: 15px;
+    padding: 8px 0;
+    transform: 0.3s;
+}
+.lan-container li:hover{
+    color: #1a98ff;
+}
 
+/* Multiple Select Popup */
+.mulsel-popup{
+    position: fixed;
+    top: 5.5rem;
+    left: 50%;
+    transform: translateX(-5%) translateY(-15px);
+    width: 45%;
+    padding: 30px 40px;
+    border-radius: 20px;
+    background: rgba(20, 24, 30, 0.9);
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+.mulsel-popup.mulShow{
+    opacity: 1;
+    transform: translateX(-5%) translateY(-15px);
+    pointer-events: auto;
+}
 
-/* --------------Main--------------- */
+/* inside layout */
+.mulsel-container{
+    display: flex;
+    justify-content: space-between;
+    color: wheat;
+}
+
+/* headings */
+.mul-heading{
+    font-size: 14px;
+    font-weight: bolder;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+}
+
+/* left 2-column layout */
+.mul-left{
+    display: flex;
+    flex-direction: column;
+}
+.mul-lists{
+    display: flex;
+    gap: 50px;
+}
+
+/* same UL style like your lan-popup */
+.mulsel-container ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.mulsel-container li{
+    font-size: 15px;
+    padding: 8px 0;
+    color: wheat;
+    transition: 0.3s;
+}
+.mulsel-container li:hover{
+    color: #1a98ff;
+}
+
+/* divider */
+.mul-divider{
+    border-right: 1px solid white;
+}
+
+/* right section */
+.mul-right{
+    min-width: 180px;
+}
+
+/* Account Popup */
+.acc-popup{
+position: fixed;
+        position: fixed;
+    top: 5.5rem;
+    left: 80%;
+    transform: translateX(25%) translateY(-15px);
+    width: 10%;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(20, 24, 30, 0.9);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+.acc-popup.accShow{
+    opacity: 1;
+    transform: translateX(25%) translateY(-15px);
+    pointer-events: auto;
+}
+.accpop-heading{
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-weight: bolder;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+}
+.acc-popup ul{
+    list-style: none;
+    color: rgba(255,255,255,0.6);
+}
+.acc-popup li{
+    color: wheat;
+    padding: 8px 0;
+    transform: 0.3s;
+}
+
+/* -----------------Main------------------- */
 main{
     padding-top: 65px;
 }
