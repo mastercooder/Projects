@@ -1,6 +1,17 @@
 
 // --------- Navigation ------------
 
+// Scrolled
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+
+    if(window.scrollY > 0){
+        navbar.classList.add('scrolled');
+    } else{
+        navbar.classList.remove('scrolled');
+    }
+});
+
 // Subscription
 const navSub = document.querySelector('.nav-sub');
 const iconImg = document.getElementById('icon-img');
@@ -8,12 +19,12 @@ const text = document.querySelector('.nav-sub-txt h3');
 navSub.addEventListener('mouseenter', () => {
   navSub.style.backgroundColor = 'white';
   text.style.color = 'black';
-  iconImg.style.backgroundImage = 'url("Icons/Subscriptions2.png")';
+  iconImg.style.backgroundImage = 'url("/Icons/Subscriptions2.png")';
 });
 navSub.addEventListener('mouseleave', () => {
   navSub.style.backgroundColor = 'transparent';
   text.style.color = 'white';
-  iconImg.style.backgroundImage = 'url("Icons/Subscriptions.png")';
+  iconImg.style.backgroundImage = 'url("/Icons/Subscriptions.png")';
 });
 
 // Search

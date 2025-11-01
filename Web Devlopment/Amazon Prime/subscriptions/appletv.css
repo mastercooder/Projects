@@ -1,0 +1,174 @@
+/* --------------Header--------------- */
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    border: border-box;
+}
+
+body{
+    background-color: #000101;
+}
+.nav-con-div{
+    display: flex;
+    justify-content: center;
+}
+.navbar{
+    height: 4rem;
+    background-color: #01050d;
+    display: flex;
+    align-content: center;
+    position: fixed;
+    transition: background-color 0.4s ease;
+    width: 95%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.navbar.scrolled{
+    background-color: rgba(1, 5, 13, 0.5);
+    backdrop-filter: blur(10px);
+}
+.nav-logo{
+    height: 1.5rem;
+    width: 5.8rem;
+    margin: 22px 30px 20px 60px;
+}
+#logo{
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/web/logo-min-remaster.png");
+    background-size: cover;
+    height: 80%;
+    width: 110%;
+}
+.nav-options{
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 12px;
+    font-weight: lighter;
+    .nav-home,
+    .nav-movies,
+    .nav-shows,
+    .nav-live{
+        margin: 20px;
+        border-radius: 10px;
+        padding: 10px;
+    }
+}
+.nav-options
+.nav-home:hover,
+.nav-movies:hover,
+.nav-shows:hover,
+.nav-live:hover{
+    background-color: white;
+    color: black;
+}
+.nav-div-line{
+    height: 25px;
+    width: 12px;
+    padding-right: 20px;
+}
+#div-logo{
+    background-image: url(/Icons/vertical_line.png);
+    background-size: cover;
+    height: 100%;
+}
+.nav-sub{
+    height: 12px;
+    width: 115px;
+    margin-right: 280px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+.nav-sub-img{
+    height: 15px;
+    width: 17px;
+}
+#icon-img{
+    background-image: url(/Icons/Subscriptions.png);
+    background-size: cover;
+    height: 100%;
+}
+.nav-sub-txt{
+    height: 16px;
+    padding-left: 5px;
+}
+.nav-search{
+    height: 20px;
+    width: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    margin: 15px;  
+}
+#nav-ser-logo{
+    background-image: url(/Icons/search.png);
+    background-size: cover;
+    height: 100%;
+}
+.nav-lan{
+    font-weight: lighter;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+.nav-lan-txt{
+    padding-right: 5px;
+}
+.nav-lan-img{
+    height: 20px;
+    width: 20px;
+}
+#lan-img{
+    background-image: url(/Icons/dropdown.png);
+    background-size: cover;
+    height: 100%;
+}
+.nav-mul-sel{
+    height: 20px;
+    width: 20px;
+    padding: 10px;
+    border-radius: 50%;
+}
+#mulsel-img{
+    background-image: url(/Icons/mutliselector.png);
+    background-size: cover;
+    height: 100%;
+}
+.nav-acc{
+    height: 30px;
+    width: 30px;
+    margin: 20px 20px 20px 1px;
+    border-radius: 50%;
+    padding: 5px;
+}
+.nav-acc:hover{
+    background-color: white;
+}
+#acc-img{
+    background-image: url(/Icons/account.png);
+    background-size: cover;
+    height: 100%;
+}
+.join-btn{
+    height: 20px;
+    width: 120px;
+}
+#nav-btn{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #157acf;
+    color: white;
+    text-decoration: none;
+    font-family: lato;
+}
+#nav-btn:hover{
+    background-color: #1a98ff;
+}
+
