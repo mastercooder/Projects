@@ -55,15 +55,13 @@ function serShowPopup(){
     isSerPopupVisible = true;
     navsearch.style.backgroundColor = 'white';
     navserpopup.classList.add('serShow');
-    main.classList.add('popup-active')
     navsericon.style.backgroundImage = 'url(/Icons/search2.png)'
 }
 function serHidePopup(){
     isSerPopupVisible = false;
     navsearch.style.backgroundColor = 'transparent';
-    navserpopup.classList.remove('serShow');
-    main.classList.remove('popup-active');
     navsericon.style.backgroundImage = 'url(/Icons/search.png)'
+    navserpopup.classList.remove('serShow');
 }
 navsearch.addEventListener('click', (e)=>{
     e.stopPropagation();

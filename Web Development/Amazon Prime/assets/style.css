@@ -235,6 +235,12 @@ body{
     color: #fffffe;
     font-size: 20px;
     font-weight: bolder;
+    padding: 11px;
+    border-radius: 10px;
+}
+.sercon-clear:hover{
+    background-color: white;
+    color: black;
 }
 body.popup-active main,
 body.popup-active footer {
