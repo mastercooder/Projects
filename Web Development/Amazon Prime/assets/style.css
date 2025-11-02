@@ -16,7 +16,7 @@ body{
 }
 .navbar{
     height: 4rem;
-    background-color: #01050d;
+    background-color: #000101;
     display: flex;
     align-content: center;
     position: fixed;
@@ -288,8 +288,7 @@ body{
 
 /* Account Popup */
 .acc-popup{
-position: fixed;
-        position: fixed;
+    position: fixed;
     top: 5.5rem;
     left: 80%;
     transform: translateX(25%) translateY(-15px);
@@ -319,10 +318,15 @@ position: fixed;
     list-style: none;
     color: rgba(255,255,255,0.6);
 }
+
 .acc-popup li{
     color: wheat;
     padding: 8px 0;
-    transform: 0.3s;
+    transition: color 0.3s ease;
+}
+
+.acc-popup li:hover{
+    color: #1a98ff;
 }
 
 /* -----------------Main------------------- */
