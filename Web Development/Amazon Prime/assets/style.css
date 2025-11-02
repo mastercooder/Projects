@@ -13,10 +13,12 @@ body{
 .nav-con-div{
     display: flex;
     justify-content: center;
+    background-color: #01050d;
+    height: 4rem;
 }
 .navbar{
     height: 4rem;
-    background-color: #000101;
+    background-color: #01050d;
     display: flex;
     align-content: center;
     position: fixed;
@@ -174,6 +176,66 @@ body{
 
 
 /* NAVBAR POPUP'S STYLE */
+
+/* Search Bar */
+.ser-popup{
+    position: fixed;
+    top: 5.5rem;
+    left: 40%;
+    transform: translateX(-35%) translateY(-15px);
+    width: 70%;
+    padding: 30px 40px;
+    border-radius: 10px;
+    background: rgba(20, 24, 30, 0.9);
+    backdrop-filter: blur(15px);
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+.ser-popup.serShow{
+    opacity: 1;
+    transform: translateX(-35%) translateY(-15px);
+    pointer-events: auto;
+}
+.ser-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+.sercon-icon{
+    height: 30px;
+    width: 30px;
+}
+#sercon-img{
+    background-image: url(/Icons/search-tab.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+.sercon-box{
+    margin: 10px;
+    width: 85%;
+}
+.sercon-box input{
+    color: #aaabaa;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+.sercon-clear{
+    margin: 10px;
+    color: #fffffe;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
 /* Langugae Popup */
 .lan-popup{
     position: fixed;
@@ -330,9 +392,6 @@ body{
 }
 
 /* -----------------Main------------------- */
-main{
-    padding-top: 65px;
-}
 .bd-container-1,
 .bd-container-2{
     height: 500px;
