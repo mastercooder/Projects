@@ -236,6 +236,15 @@ body{
     font-size: 20px;
     font-weight: bolder;
 }
+body.popup-active main,
+body.popup-active footer {
+    filter: blur(6px) brightness(0.5);
+    pointer-events: none; /* Blocks interactions */
+    transition: filter 0.3s ease;
+}
+body.popup-active {
+    overflow: hidden;
+}
 
 /* Langugae Popup */
 .lan-popup{
