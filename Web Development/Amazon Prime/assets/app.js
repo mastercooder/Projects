@@ -50,7 +50,7 @@ function serHideHover(){
 navsearch.addEventListener('mouseenter', serShowHover);
 navsearch.addEventListener('mouseleave', serHideHover);
 
-// Popup
+// Toggle popup on search click (open/close)
 function serShowPopup(){
     isSerPopupVisible = true;
     navsearch.style.backgroundColor = 'white';
@@ -64,7 +64,20 @@ function serHidePopup(){
     navsericon.style.backgroundImage = 'url(/Icons/search.png)'
 }
 navsearch.addEventListener('click', (e)=>{
-    serShowPopup();
+    e.stopPropagation();
+    if(isSerPopupVisible){
+        serHideHover();
+    } else{
+        serShowPopup();
+    }
+});
+navserpopup.addEventListener('click', (e) =>{
+    e.stopPropagation();
+});
+document.addEventListener('click', (e) =>{
+    if(isSerPopupVisible && !navsearch.contains(e.target) && !navserpopup.contains(e.target)){
+        serHidePopup();
+    }
 });
 
 
