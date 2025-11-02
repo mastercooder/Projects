@@ -30,14 +30,43 @@ navSub.addEventListener('mouseleave', () => {
 // Search
 const navsearch = document.querySelector('.nav-search');
 const navsericon = document.getElementById('nav-ser-logo');
-navsearch.addEventListener('mouseenter', () =>{
+const navserpopup = document.querySelector('.ser-popup');
+
+let isSerPopupVisible = false;
+
+// Hover
+function serShowHover(){
+    if(!isSerPopupVisible){
+        navsearch.style.backgroundColor = 'white';
+        navsericon.style.backgroundImage = 'url(/Icons/search2.png)'
+    }
+}
+function serHideHover(){
+    if(!isSerPopupVisible){
+        navsearch.style.backgroundColor = 'transparent';
+        navsericon.style.backgroundImage = 'url(/Icons/search.png)'
+    }
+}
+navsearch.addEventListener('mouseenter', serShowHover);
+navsearch.addEventListener('mouseleave', serHideHover);
+
+// Popup
+function serShowPopup(){
+    isSerPopupVisible = true;
     navsearch.style.backgroundColor = 'white';
+    navserpopup.classList.add('serShow');
     navsericon.style.backgroundImage = 'url(/Icons/search2.png)'
-});
-navsearch.addEventListener('mouseleave', () =>{
+}
+function serHidePopup(){
+    isSerPopupVisible = false;
     navsearch.style.backgroundColor = 'transparent';
+    navserpopup.classList.remove('serShow');
     navsericon.style.backgroundImage = 'url(/Icons/search.png)'
+}
+navsearch.addEventListener('click', (e)=>{
+    serShowPopup();
 });
+
 
 // Language
 const navlan = document.querySelector('.nav-lan');
