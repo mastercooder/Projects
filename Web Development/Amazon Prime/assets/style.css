@@ -592,8 +592,9 @@ body.popup-active {
     justify-content: center;
     color: #79b8f3;
 }
-.ft-feedback:hover{
+.ft-feedback p:hover{
     color: #5fcbfe;
+    cursor: pointer;
 }
 .ft-copyright{
     margin: 10px;

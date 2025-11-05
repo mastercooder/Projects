@@ -8,11 +8,13 @@
 }
 
 body{
-    background-color: #000101;
+    background-color: #030302;
 }
 .nav-con-div{
     display: flex;
     justify-content: center;
+    background-color: #01050d;
+    height: 4rem;
 }
 .navbar{
     height: 4rem;
@@ -26,8 +28,8 @@ body{
     border-bottom-right-radius: 10px;
 }
 .navbar.scrolled{
-    background-color: rgba(1, 5, 13, 0.5);
-    backdrop-filter: blur(10px);
+    background-color: rgba(21, 25, 32, 0.75);
+    backdrop-filter: blur(15px);
 }
 .nav-logo{
     height: 1.5rem;
@@ -172,3 +174,356 @@ body{
     background-color: #1a98ff;
 }
 
+
+/* NAVBAR POPUP'S STYLE */
+
+/* Search Bar */
+.ser-popup{
+    position: fixed;
+    top: 5.5rem;
+    left: 40%;
+    transform: translateX(-35%) translateY(-15px);
+    width: 70%;
+    padding: 30px 40px;
+    border-radius: 10px;
+    background: rgba(20, 24, 30, 0.9);
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+.ser-popup.serShow{
+    opacity: 1;
+    transform: translateX(-35%) translateY(-15px);
+    pointer-events: auto;
+}
+.ser-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+.sercon-icon{
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+}
+#sercon-img{
+    background-image: url(/Icons/search-tab.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+.sercon-box{
+    margin: 10px;
+    width: 85%;
+}
+.sercon-box input{
+    color: #aaabaa;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+.sercon-clear{
+    margin: 10px;
+    color: #fffffe;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 11px;
+    border-radius: 10px;
+}
+.sercon-clear:hover{
+    background-color: white;
+    color: black;
+}
+body.popup-active main,
+body.popup-active footer {
+    filter: blur(6px) brightness(0.5);
+    pointer-events: none; /* Blocks interactions */
+    transition: filter 0.3s ease;
+}
+body.popup-active {
+    overflow: hidden;
+}
+
+/* Langugae Popup */
+.lan-popup{
+    position: fixed;
+    top: 5.5rem;
+    left: 50%;
+    transform: translateX(-25%) translateY(-15px);
+    width: 55%;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(20, 24, 30, 0.9);
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+.lan-popup.lanShow {
+    opacity: 1;
+    transform: translateX(-25%) translateY(-15px);
+    pointer-events: auto;
+}
+.lan-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.lan-container ul{
+    list-style: none;
+    padding: 0;
+}
+.lan-container li{
+    color: wheat;
+    font-size: 15px;
+    padding: 8px 0;
+    transform: 0.3s;
+}
+.lan-container li:hover{
+    color: #1a98ff;
+}
+
+/* Multiple Select Popup */
+.mulsel-popup{
+    position: fixed;
+    top: 5.5rem;
+    left: 50%;
+    transform: translateX(-5%) translateY(-15px);
+    width: 45%;
+    padding: 30px 40px;
+    border-radius: 20px;
+    background: rgba(20, 24, 30, 0.9);
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+.mulsel-popup.mulShow{
+    opacity: 1;
+    transform: translateX(-5%) translateY(-15px);
+    pointer-events: auto;
+}
+
+/* inside layout */
+.mulsel-container{
+    display: flex;
+    justify-content: space-between;
+    color: wheat;
+}
+
+/* headings */
+.mul-heading{
+    font-size: 14px;
+    font-weight: bolder;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+}
+
+/* left 2-column layout */
+.mul-left{
+    display: flex;
+    flex-direction: column;
+}
+.mul-lists{
+    display: flex;
+    gap: 50px;
+}
+
+/* same UL style like your lan-popup */
+.mulsel-container ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.mulsel-container li{
+    font-size: 15px;
+    padding: 8px 0;
+    color: wheat;
+    transition: 0.3s;
+}
+.mulsel-container li:hover{
+    color: #1a98ff;
+}
+
+/* divider */
+.mul-divider{
+    border-right: 1px solid white;
+}
+
+/* right section */
+.mul-right{
+    min-width: 180px;
+}
+
+/* Account Popup */
+.acc-popup{
+    position: fixed;
+    top: 5.5rem;
+    left: 80%;
+    transform: translateX(25%) translateY(-15px);
+    width: 10%;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(20, 24, 30, 0.9);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+.acc-popup.accShow{
+    opacity: 1;
+    transform: translateX(25%) translateY(-15px);
+    pointer-events: auto;
+}
+.accpop-heading{
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-weight: bolder;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+}
+.acc-popup ul{
+    list-style: none;
+    color: rgba(255,255,255,0.6);
+}
+
+.acc-popup li{
+    color: wheat;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.acc-popup li:hover{
+    color: #1a98ff;
+}
+
+/* -------------Main-------------- */
+.her-container {
+    height: 700px;
+}
+
+/* This will hold the background image */
+.hercon-img {
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/a-f/appletvin/heroes/web_3p-signup-background._CB546533362_.jpg");
+    background-size: 61%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90%;
+    width: 120%;
+    display: flex;
+    padding: 70px 0px 0px 70px;
+    color: white;
+}
+
+/* This contains your logo + text */
+.hercon-txt {
+    max-width: 40%; /* Restrict width so text doesn’t stretch too much */
+}
+
+/* Apple logo */
+#appleimg {
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/a-f/appletvin/logos/3p-logo._CB546531436_.png");
+    background-size: 150%;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 200px;
+    margin-bottom: 30px;
+}
+
+.appletxt p{
+    line-height: 1.6;
+    font-weight: bolder;
+    width: 95%;
+    font-size: 20px;
+}
+#apptxt-p2{
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+}
+.appgetstarted{
+    border: 1px solid white;
+    padding: 20px;
+    width: 15%;
+    height: 25px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    transition: transform 0.30s ease, box-shadow 0.30s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.appgetstarted:hover{
+    color: #535252;
+    background-color: #f1f1f1;
+    width: 16%;
+    height: 27px;
+    transform: scale(1.05);
+}
+
+
+/* -------------Footer-------------- */
+.ft-section{
+    background-color: #232222;
+    height: 90px;
+    padding: 20px;
+}
+.ft-content-logo{
+    display: flex;
+    justify-content: center;
+}
+.ft-logo-amazon{
+    height: 32px;
+    width: 105px;
+    padding-right: 30px;
+}
+#ft-logo{
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/acquisition/logo/pv_logo_white._CB548637580_.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+.ft-content-txt{
+    padding: 10px;
+    p{
+        padding-right: 20px;
+    }
+}
+.ft-feedback{
+    display: flex;
+    justify-content: center;
+    color: #79b8f3;
+}
+.ft-feedback p:hover{
+    color: #5fcbfe;
+    cursor: pointer;
+}
+.ft-copyright{
+    margin: 10px;
+}
+.c-img{
+    background-image: url(/Icons/copyright.png);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+.c-txt{
+    display: flex;
+    justify-content: center;
+    color: #819687;
+}
