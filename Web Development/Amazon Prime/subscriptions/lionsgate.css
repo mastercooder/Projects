@@ -414,7 +414,7 @@ body.popup-active {
 
 /* This will hold the background image */
 .hercon-img {
-    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/a-f/appletvin/heroes/web_3p-signup-background._CB546533362_.jpg");
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/g-l/lionsgateplayin/heroes/web_3p-signup-background._CB801622701_.jpg");
     background-size: 80%;
     background-position: 100% -10%;
     background-repeat: no-repeat;
@@ -429,13 +429,13 @@ body.popup-active {
     max-width: 40%; 
 }
 
-/* Apple logo */
+/* LOGO */
 #appleimg {
-    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/a-f/appletvin/logos/3p-logo._CB546531436_.png");
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/g-l/lionsgateplayin/logos/3p-logo._CB598830369_.png");
     background-size: 100%;
     background-repeat: no-repeat;
     height: 100px;
-    width: 300px;
+    width: 200px;
     margin-bottom: 30px;
 }
 
@@ -445,7 +445,10 @@ body.popup-active {
     width: 120%;
     font-size: 19px;
 }
-#apptxt-p2{
+#apptxt-p1{
+    padding-bottom: 30px;
+}
+#apptxt-p3{
     padding-top: 40px;
     padding-bottom: 40px;
 
