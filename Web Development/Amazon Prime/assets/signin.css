@@ -1,0 +1,173 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sign_imgcontainer{
+    height: 45px;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.primeimg{
+    background-image: url("https://images-na.ssl-images-amazon.com/images/G/01/digital/PV_Logo_Landscape_Smile_Centred_Dark_Squid_Ink_RGB_150._TTD_.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+} 
+.sign_txtcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+.txt_box{
+    height: 290px;
+    width: 25%;
+    border: 1px solid #d5d9d8;
+    border-radius: 10px;
+    padding: 30px;
+}
+.txt_box input{
+    width: 100%;
+    padding: 2.5%;
+    border-radius: 5px;
+    margin-top: 5px;
+    border: 0.5px solid #898c8d;
+    outline: none;
+    transition: all 0.25s ease;
+}
+.txt_box input:focus{
+    border-color: #898d8c;
+    box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.25);
+}
+#txtbox-heading{
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+#input_notxt{
+    font-weight: bolder;
+    font-size: 80%;
+}
+.txtbox-continue{
+    margin: 10px 0px;
+    padding: 3%;
+    border-radius: 50px;
+    text-align: center;
+    background-color: #ffd814;
+    font-size: 80%;
+}
+.txtbox-continue:hover{
+    background-color: #fece12;
+}
+.txtbox-agriment{
+    font-size: 80%;
+    line-height: 1.1rem;
+}
+#txtagr-2{
+    text-decoration: underline;
+    color: #2063b6;
+}
+#txtagr-2:hover{
+    color: #0d3352;
+}
+.txtbox-needhelp{
+    margin: 20px 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+.txtbox-needhelp p{
+    color: #2063b6;
+}
+.txtbox-needhelp p:hover{
+    text-decoration: underline;
+    color: #0d3352;
+}
+.txneedh-img{
+    height: 25px;
+    width: 25px;
+}
+.needdrop-img{
+    background-image: url(/Icons/dropdown3.png);
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+}
+.createacc-heading{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80%;
+}
+.cracc-container{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+/* .cracc1{
+    background-image: url(/Icons/line.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 20px;
+    width: 25%;
+} */
+.createacc-main{
+    display: flex;
+    justify-content: center;
+    font-size: 80%;
+    margin-bottom: 30px;
+}
+.cracc-maincon{
+    border: 1px solid #898c8c;
+    border-radius: 50px;
+    padding: 10px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#bottom-line{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.bottomline-container{
+    background-color: #d5d9d9;
+    height: 2px;
+    width: 95%;
+}
+
+
+
+.footer-txt{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+#foot-span,
+#foot-p{
+    padding: 10px;
+    font-size: 80%;
+    color: #2063b6;
+    text-align: center;
+}
+#foot-span:hover,
+#foot-p:hover{
+    text-decoration: underline;
+    color: #0d3352;
+}
