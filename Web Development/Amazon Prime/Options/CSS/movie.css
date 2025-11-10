@@ -16,11 +16,10 @@ body{
     display: flex;
     justify-content: center;
     background-color: #01050d;
-    height: 4rem;
 }
 .navbar{
     height: 4rem;
-    background-color: #01050d;
+    background-color: transparent;
     display: flex;
     align-content: center;
     position: fixed;
@@ -413,156 +412,123 @@ body.popup-active {
     color: #1a98ff;
 }
 
-/* -----------------Main------------------- */
-.bd-container-1,
-.bd-container-2{
-    height: 500px;
-    display: flex;
-    justify-content: space-evenly;
-}
-.bd-con1-txt,
-.bd-con2-txt{
-    color: white;
-    padding: 70px 0px 70px 70px;
-}
-.bd-con1-img{
-    height: 500px;
-    width: 80%;
-}
-#bd-img-1{
-    background-image: url(/Icons/hero-section-1.jpg);
-    background-size: contain;
-    background-position: center right;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-}
-.hd-htxt,
-.hd-htxt-2{
-    font-size: 25px;
-    padding-bottom: 40px;
-}
-.hd-ptxt,
-.hd-ptxt-2{
-    font-size: 20px;
-    padding-bottom: 40px;
-    font-weight: bolder;
-}
-.bd-sign,
-.bd-rent{
-    font-size: 20px;
-    color: #00050d;
-    background-color: white;
-    height: 50px;
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-bottom: 210px;
-    transition: transform 0.30s ease, box-shadow 0.30s ease;
-}
-.bd-sign:hover{
-    color: #4c4d4d;
-    font-size: 21px;
-    height: 51px;
-    width: 210px;
-    transform: scale(1.05); 
-}
 
-.bd-rent{
-    width: 110px;
-}
-.bd-rent:hover{
-    color: #4c4d4d;
-    font-size: 22px;
-    height: 53px;
-    width: 120px;
-    transform: scale(1.05); 
-}
 
-.bd-con2-img{
-    height: 500px;
-    width: 50%;
-}
-#bd-img-2{
-    background-image: url(/Icons/hero-section-2.jpg);
-    background-size: contain;
-    background-position: center right;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-}
-.bd-cont-2{
-    background-color: #01050d;
-    color: white;
-    height: 600px;
-    display: flex;
-}
-.bd-ft-txt{
-    width: 50%;
-    font-weight: bolder;
-    padding: 50px;
-}
-.bd-ft-htxt{
-    font-size: 25px;
-    margin-bottom: 30px;
-}
-.bd-ft-pf{
-    display: flex;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-}
-.ft-platforms{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    max-width: 700px;
-}
-.ft-pt-options{
-    background-size: cover;
-    border-radius: 10px;
-    width: 220px;
-    height: 140px;
+/* -------------Main------------- */
+
+.main-bckgndimg{
+    background-image: url("https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_KantaraALegendChapter1_Refresh_IMDb/8cd32346-d72a-49a5-8d88-eb5dc02cdbd3._UR3840,1440_SX2160_FMwebp_.jpeg");
+    background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 560px;
 }
-.ft-pt-options:hover {
-  transform: scale(1.03); /* tiny lift effect */
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+.main-uppbckimg{
+    height: 65%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 100px 0 0 70px;
 }
-.ft-appletv{
-    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_AppleTV_V1._AC_SX400_QL80_FP_.png");
+.uppimg-prime{
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-color._CB554929912_BR-6_AC_SX750_FMwebp_.png");
+    background-size: 10%;
+    background-position: left;
+    background-repeat: no-repeat;
+    height: 20%;
+    width: 100%;
 }
-.ft-crunchyroll{
-    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Crunchyroll_V1._AC_SX400_QL80_FP_.png");
+.uppimg{
+    background-image: url("https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_KantaraALegendChapter1_Refresh_IMDb/1d5355ca-84d8-45e3-917a-fe081d7e7821._BR-6_AC_SX1500_FMwebp_.png");
+    background-size: 60%;
+    background-position: left;
+    background-repeat: no-repeat;
+    height: 70%;
+    width: 100%;
 }
-.ft-lionsgate{
-    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_LGP_V1._AC_SX400_QL80_FP_.png");
+#upptxt{
+    color: #37f1a3;
+    font-weight: bolder;
+    padding-left: 15px;
+    height: 10%;
+    padding-left: 5px;
 }
-.ft-discovery{
-    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Discovery_V1._AC_SX400_QL80_FP_.png");
+
+/* + Button */
+.main-options{
+    display: flex;
+    height: 10%;
+    width: 40%;
+    padding-left: 75px;
 }
-.ft-anime{
-    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Anime_V1._AC_SX400_QL80_FP_.png");
+.mo-join{
+    width: 23%;
+    border-radius: 10px;
+    margin-right: 4%;
+    background-color: #35363d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.ft-manorama{
-    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Manoramamax_V1._AC_SX400_QL80_FP_.png");
+.mo-join p{
+    color: white;
+    font-weight: bolder;
+    font-size: 19px;
+    text-align: center;
+    padding: 10px;
 }
-.ft-chaupal{
-    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Chaupal_V1._AC_SX400_QL80_FP_.png");
+
+.mo-add{
+    background-image: url(/Icons/add.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 10%;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #35373d;
+
 }
-.ft-bbc{
-    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_BBC_V1._AC_SX400_QL80_FP_.png");
+.mo-i{
+    background-image: url(/Icons/info.png);
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 10%;
+    border-radius: 50%;
+    background-color: #35373d;
 }
-.ft-fancode{
-    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Fancode_V1._AC_SX400_QL80_FP_.png");
+
+/* Info Button */
+.mini-bottomimg{
+    padding: 5px 0 0 70px;
+    display: flex;
+    align-items: center;
 }
+.mini-p{
+    color: white;
+}
+.mini-icon{
+    background-image: url(/Icons/shoping.png);
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+}
+
+/* Movie Recomandation */
+.rec-movie{
+    color: white;
+    padding: 20px 0 0 70px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.rec-movie span{
+    padding-left: 20px;
+}
+
+
 
 
 /* -------------Footer-------------- */
