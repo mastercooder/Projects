@@ -5,6 +5,7 @@
     margin: 0;
     font-family: Arial;
     border: border-box;
+    transition: all 0.30s ease;
 }
 a{
     text-decoration: none;
@@ -429,6 +430,11 @@ body.popup-active {
     display: flex;
     flex-direction: column;
     padding: 100px 0 0 70px;
+    transition: all 0.4s ease;
+}
+.main-uppbckimg:hover{
+    opacity: 1;
+    padding: 70px 0 30px 70px;
 }
 .uppimg-prime{
     background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-color._CB554929912_BR-6_AC_SX750_FMwebp_.png");
@@ -443,7 +449,7 @@ body.popup-active {
     background-size: 60%;
     background-position: left;
     background-repeat: no-repeat;
-    height: 70%;
+    height: 80%;
     width: 100%;
 }
 #upptxt{
@@ -453,6 +459,21 @@ body.popup-active {
     height: 10%;
     padding-left: 5px;
 }
+/* Hidden text by default */
+#lowtxt{ 
+    opacity: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    padding-left: 15px;
+    height: 10%;
+    padding-left: 5px;
+    transition: opacity 0.3s ease;
+}
+.main-uppbckimg:hover #lowtxt{
+    opacity: 1;
+    transition:  0.5s ease 0.1s;
+}
 
 /* + Button */
 .main-options{
@@ -460,22 +481,28 @@ body.popup-active {
     height: 10%;
     width: 40%;
     padding-left: 75px;
+    margin-bottom: 10px;
 }
 .mo-join{
-    width: 23%;
+    width: 60%;
     border-radius: 10px;
     margin-right: 4%;
     background-color: #35363d;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+    transition: all 0.30s ease;
 }
 .mo-join p{
-    color: white;
     font-weight: bolder;
     font-size: 19px;
     text-align: center;
     padding: 10px;
+}
+.mo-join:hover{
+    background-color: white;
+    color: black;
 }
 
 .mo-add{
@@ -519,21 +546,140 @@ body.popup-active {
 
 /* Movie Recomandation */
 .rec-movie{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
     color: white;
-    padding: 20px 0 0 70px;
+    margin-top: 50px;
+}
+.rec-movie p{
     font-size: 20px;
-    font-weight: bolder;
+    margin: 10px 0 0 70px;
+    font-weight: bold;
 }
 .rec-movie span{
     padding-left: 20px;
 }
+.rec-movie ul{
+    display: flex;
+    height: 100%;
+    padding-left: 70px;
+    overflow: visible;
+}
+.rec-movie li{
+    list-style: none;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 90%;
+    width: 90%;
+    margin: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s 
+ease;
+}
+.rec-movie li:hover{
+    transform: scale(1.1) translateY(-5px);
+    box-shadow:
+        0 15px 25px rgba(0, 0, 0, 0.6),       
+        0 0 15px rgba(255, 255, 255, 0.25);   
+    z-index: 10;
+}
+#rc-img1{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/822073795451812b0024babea4e1654641538a7e2894e8ec13967cef15cbb4b2._SX1080_FMwebp_.jpg');
+}
+#rc-img2{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/5fa6ac1f72f3a1e8004fb17d54ac59e60ac92c1896fdf928e9ef71a0ce0b5674._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img3{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/ca18e17ac7557fc729ecfca9e5abb4b531e49bf818ce37b8c4407f70995d0fc7._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.png');
+}
+#rc-img4{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/7d7ae1997f6c20fd2e085b7be658f992f6465c4e4508f356d4b2dae1851ef269._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.png');
+}
+#rc-img5{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/87b2737d1ed48d2f1de31d98cc3a078a66c4746e99452e5e06974d87c04a1d44._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img6{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/4e3efe33f5112ce180f0df0dc34c02d0cab96e9e3e398a508bb75d0d3bd351f7._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img7{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/9eba2f879dcb1bdc47fb70696ff7ce5cb5471a0b4309682977d5011bdb0268ea._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img8{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/cf78969919fe8313a60afdf8867e075a09afb84e92b905e9bb8f3965cb6ee615._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img9{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/07a7af2f0cc37792b2eb0ee196b53dd10a39ed816fc6f61633116e65ad603745._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img10{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/1cab09d337e2e87b8cd622243998334d27ecd9860a11a8d670f799e7c9a13d1e._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.png');
+}
+#rc-img11{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/6880e878df1684656848a7798b16ae4e0002c3f0d3e199cc5b41af91a19cf0ac._UR1920,1080_SX600_FMwebp_.jpg');
+}
+#rc-img12{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/fad41808d1635086ca387c295411a139e0bc3ebdd2b902bafbb80229e98735ef._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX400_FMwebp_.jpg');
+}
+#rc-img13{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/656066d8d6f1b0ee861a8f936bbda65e99e6d06f14bfaa8319a331e1bddec034._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/mgmin/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1563,885,278,117_kv1f86dd29014635dfb9e5793150584d26_SX400_FMwebp_.jpg');
+}
+#rc-img14{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/f2d3284dab5b73484a9aa3c99fb1f0097244fb1fdb1a5481e40a162c211f34e5._UR1920,1080_SX400_FMwebp_.jpg');
+}
+#rc-img15{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/07a7af2f0cc37792b2eb0ee196b53dd10a39ed816fc6f61633116e65ad603745._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img16{
+    background-image: url(' https://m.media-amazon.com/images/S/pv-target-images/ab8a782176b4ec8e198381b7c19f9d664afa248a6660f1b19739dfeb196739a5._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img17{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/a1e7a83ec2a172ee908e16cadf6ca4aff3a0ad6bcba03a4bcd6c336c020c00cb._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img18{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/77a50eef154086c3551f272193efbcc474ba64147e27d404e3b79ce4fffb9b7c._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img19{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/4c5d18cda224a7fd7a193e16ede141a6397536e81c3a63fd31f4ae73206859be._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img20{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/17123f73b2562d8c2714e103c5330522aae44faf9bb7adf6fed1f70de3854e80._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img21{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/6ab9d8f872501ed0b8fe9ee546691f4e68c13c59312f3bfb998f23dc1a5f9db6._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img22{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/e6258f771a8c57beb863bef728b9f50f953c08421a0b06d5f139fb3e5435ac20._UR1920,1080_SX600_FMwebp_.jpg');
+}
+#rc-img23{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/a2bf2783ce4cd88a9b1ddfb9c579c3da30d6cbdc56a3ca0addef446af01c3f49._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img24{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/471f1b56aa8fe8510e84bd8d4d5fba75514df07fc0035eea4fcea34a88eba544._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img25{
+    background-image: url(' https://m.media-amazon.com/images/S/pv-target-images/b6802d6fb6b9eb3a30ff67d271ba4c7c21ffb0a4e5266a7530157d3b7fa9dddf._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
+#rc-img26{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/8048d7ed7f055304653bd3ee63b1e9fb87011d73202669d6f09168f913742e3d._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/31/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1224,847,617,156_kvd4515e4783875e4179be3fd9d4a0bfc7_SX600_FMwebp_.jpg');
+}#rc-img27{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/fd5c239c7edc8c0dae245704ade3cef26bace7336e7d8125f22f88e0646d4345._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX400_FMwebp_.jpg');
+}#rc-img28{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/fad41808d1635086ca387c295411a139e0bc3ebdd2b902bafbb80229e98735ef._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX400_FMwebp_.jpg');
+}#rc-img29{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/32d817cc3cb7d48e6e5e68b388e04f4fab6084a24d2b3840105d70cfed27c4a7._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX400_FMwebp_.jpg');
+}#rc-img30{
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/4c5d18cda224a7fd7a193e16ede141a6397536e81c3a63fd31f4ae73206859be._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/m-r/Prime/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kvf21cb47db8d34aa971cd86f57a65cf8d_SX600_FMwebp_.jpg');
+}
 
 
 
+.final-space{
+    height: 150px;
+}
 
 /* -------------Footer-------------- */
 .ft-section{
-    background-color: #232222;
     height: 90px;
     padding: 20px;
 }
