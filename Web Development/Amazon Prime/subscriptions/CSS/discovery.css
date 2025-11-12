@@ -6,9 +6,11 @@
     font-family: Arial;
     border: border-box;
 }
-
+a{
+    text-decoration: none;
+}
 body{
-    background-color: #030302;
+    background-color: #000101;
 }
 .nav-con-div{
     display: flex;
@@ -41,6 +43,10 @@ body{
     background-size: cover;
     height: 80%;
     width: 110%;
+}
+.nav-options a{
+    text-decoration: none;
+    color: white;
 }
 .nav-options{
     color: white;
@@ -158,8 +164,8 @@ body{
     height: 100%;
 }
 .join-btn{
-    height: 20px;
-    width: 120px;
+    height: -1px;
+    width: 110px;
 }
 #nav-btn{
     font-size: 20px;
@@ -414,7 +420,7 @@ body.popup-active {
 
 /* This will hold the background image */
 .hercon-img {
-    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/m-r/manoramamaxin/heroes/web_3p-signup-background._CB803106155_.jpg");
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/a-f/discoveryplusin/heroes/web_3p-signup-background._CB798946814_.jpg");
     background-size: 80%;
     background-position: 100% -10%;
     background-repeat: no-repeat;
@@ -431,10 +437,10 @@ body.popup-active {
 
 /* LOGO */
 #appleimg {
-    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/m-r/manoramamaxin/logos/3p-logo._CB640770785_.png");
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/a-f/discoveryplusin/logos/3p-logo._CB562252602_.png");
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 60px;
+    height: 100px;
     width: 300px;
     margin-bottom: 30px;
 }

@@ -6,9 +6,11 @@
     font-family: Arial;
     border: border-box;
 }
-
+a{
+    text-decoration: none;
+}
 body{
-    background-color: #030302;
+    background-color: #000101;
 }
 .nav-con-div{
     display: flex;
@@ -41,6 +43,10 @@ body{
     background-size: cover;
     height: 80%;
     width: 110%;
+}
+.nav-options a{
+    text-decoration: none;
+    color: white;
 }
 .nav-options{
     color: white;
@@ -158,8 +164,8 @@ body{
     height: 100%;
 }
 .join-btn{
-    height: 20px;
-    width: 120px;
+    height: -1px;
+    width: 110px;
 }
 #nav-btn{
     font-size: 20px;
@@ -407,6 +413,158 @@ body.popup-active {
     color: #1a98ff;
 }
 
+/* -----------------Main------------------- */
+.bd-container-1,
+.bd-container-2{
+    height: 500px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.bd-con1-txt,
+.bd-con2-txt{
+    color: white;
+    padding: 70px 0px 70px 70px;
+}
+.bd-con1-img{
+    height: 500px;
+    width: 80%;
+}
+#bd-img-1{
+    background-image: url(/Icons/hero-section-1.jpg);
+    background-size: contain;
+    background-position: center right;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+.hd-htxt,
+.hd-htxt-2{
+    font-size: 25px;
+    padding-bottom: 40px;
+}
+.hd-ptxt,
+.hd-ptxt-2{
+    font-size: 20px;
+    padding-bottom: 40px;
+    font-weight: bolder;
+}
+.bd-sign,
+.bd-rent{
+    font-size: 20px;
+    color: #00050d;
+    background-color: white;
+    height: 50px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 210px;
+    transition: transform 0.30s ease, box-shadow 0.30s ease;
+}
+.bd-sign:hover{
+    color: #4c4d4d;
+    font-size: 21px;
+    height: 51px;
+    width: 210px;
+    transform: scale(1.05); 
+}
+
+.bd-rent{
+    width: 110px;
+}
+.bd-rent:hover{
+    color: #4c4d4d;
+    font-size: 22px;
+    height: 53px;
+    width: 120px;
+    transform: scale(1.05); 
+}
+
+.bd-con2-img{
+    height: 500px;
+    width: 50%;
+}
+#bd-img-2{
+    background-image: url(/Icons/hero-section-2.jpg);
+    background-size: contain;
+    background-position: center right;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+.bd-cont-2{
+    background-color: #01050d;
+    color: white;
+    height: 600px;
+    display: flex;
+}
+.bd-ft-txt{
+    width: 50%;
+    font-weight: bolder;
+    padding: 50px;
+}
+.bd-ft-htxt{
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+.bd-ft-pf{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+.ft-platforms{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 700px;
+}
+.ft-pt-options{
+    background-size: cover;
+    border-radius: 10px;
+    width: 220px;
+    height: 140px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ft-pt-options:hover {
+  transform: scale(1.03); /* tiny lift effect */
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+.ft-appletv{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_AppleTV_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-crunchyroll{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Crunchyroll_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-lionsgate{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_LGP_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-discovery{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Discovery_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-anime{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Anime_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-manorama{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Manoramamax_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-chaupal{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Chaupal_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-bbc{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_BBC_V1._AC_SX400_QL80_FP_.png");
+}
+.ft-fancode{
+    background-image: url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/Channels/MLP/426x294_Fancode_V1._AC_SX400_QL80_FP_.png");
+}
+
+
 /* -------------Main-------------- */
 .her-container {
     height: 700px;
@@ -414,7 +572,7 @@ body.popup-active {
 
 /* This will hold the background image */
 .hercon-img {
-    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/a-f/animetimesin/heroes/web_3p-signup-background._CB800603615_.jpg");
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/m-r/manoramamaxin/heroes/web_3p-signup-background._CB803106155_.jpg");
     background-size: 80%;
     background-position: 100% -10%;
     background-repeat: no-repeat;
@@ -431,7 +589,7 @@ body.popup-active {
 
 /* LOGO */
 #appleimg {
-    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/a-f/animetimesin/logos/3p-logo._CB547413815_.png");
+    background-image: url("https://m.media-amazon.com/images/G/01/digital/video/merch/subs/benefit-id/a-f/chaupalin/logos/3p-logo._CB563735538_.png");
     background-size: 100%;
     background-repeat: no-repeat;
     height: 100px;
