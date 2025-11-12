@@ -164,8 +164,8 @@ body{
     height: 100%;
 }
 .join-btn{
-    height: 20px;
-    width: 120px;
+    height: -1px;
+    width: 110px;
 }
 #nav-btn{
     font-size: 20px;
