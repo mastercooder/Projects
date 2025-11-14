@@ -417,7 +417,7 @@ body.popup-active {
 /* -------------Main------------- */
 
 .main-bckgndimg{
-    background-image: url("https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_GenV_S2_AllEpiOut/47fabd28-8945-4a1b-8e72-a9be80e998e7._UR3840,1440_SX2160_FMwebp_.jpeg");
+    background-image: url("https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_MaxtonHall_S2/c0479f5a-f0d2-41a1-875e-9bf2bbadf5df._UR3840,1440_SX2160_FMwebp_.jpeg");
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -444,8 +444,8 @@ body.popup-active {
     width: 100%;
 }
 .uppimg{
-    background-image: url("https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_GenV_S2_AllEpiOut/6b1cf1ca-5f4d-4f29-aacc-c4276f9c52d5._BR-6_AC_SX1500_FMwebp_.png");
-    background-size: 30%;
+    background-image: url("https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_MaxtonHall_S2/4074ba58-1161-4fd1-9fad-032f8ed2f1d6._BR-6_AC_SX1500_FMwebp_.png");
+    background-size: 40%;
     background-position: left;
     background-repeat: no-repeat;
     height: 80%;
