@@ -12,7 +12,7 @@ function showElement(element, delay = 0){
         element.classList.add("fall");
     }, delay);
 }
-
+0
 // Run animation when page loads
 document.addEventListener("DOMContentLoaded", ()=>{
     showElement(loadingText, 0);
